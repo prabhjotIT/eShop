@@ -22,7 +22,7 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasForeignKey(o => o.CustomerId)
             .IsRequired();
 
-        builder.HasMany(o => o.LineItem)
+        builder.HasMany(o => o.LineItems)
             .WithOne()
             .HasForeignKey(o => o.OrderId);
 

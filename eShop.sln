@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistance\Persistence.csproj", "{95E8CADF-501E-4955-9BA7-CB8C98D5B965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{82F0310C-2E2F-41C7-9844-0C66F7B3487C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{82F0310C-2E2F-41C7-9844-0C66F7B3487C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

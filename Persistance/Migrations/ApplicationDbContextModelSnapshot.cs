@@ -45,7 +45,7 @@ namespace Persistence.Migrations
                     b.ToTable("Customer");
                 });
 
-            modelBuilder.Entity("Domain.Orders.LineItem", b =>
+            modelBuilder.Entity("Domain.Orders.LineItems", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
@@ -62,7 +62,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("LineItem");
+                    b.ToTable("LineItems");
                 });
 
             modelBuilder.Entity("Domain.Orders.Order", b =>
@@ -98,10 +98,10 @@ namespace Persistence.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("Domain.Orders.LineItem", b =>
+            modelBuilder.Entity("Domain.Orders.LineItems", b =>
                 {
                     b.HasOne("Domain.Orders.Order", null)
-                        .WithMany("LineItem")
+                        .WithMany("LineItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -126,7 +126,7 @@ namespace Persistence.Migrations
 
                             b1.HasKey("LineItemId");
 
-                            b1.ToTable("LineItem");
+                            b1.ToTable("LineItems");
 
                             b1.WithOwner()
                                 .HasForeignKey("LineItemId");
@@ -174,7 +174,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Orders.Order", b =>
                 {
-                    b.Navigation("LineItem");
+                    b.Navigation("LineItems");
                 });
 #pragma warning restore 612, 618
         }

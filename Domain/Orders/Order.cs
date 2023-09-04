@@ -12,7 +12,7 @@ public class Order
     private readonly HashSet<LineItem> _lineItems = new();
     public OrderId Id { get; private set; }
     public CustomerId CustomerId { get; private set; }
-    public IReadOnlyCollection<LineItem> LineItem => _lineItems.ToList();
+    public IReadOnlyCollection<LineItem> LineItems => _lineItems.ToList();
 
     public static Order Create(CustomerId CustomerId)
     {
@@ -34,4 +34,13 @@ public class Order
         _lineItems.Add(lineItem);
     }
 
+    public void RemoveLineItem(LineItemId lineItemId)
+    {
+        var lineItem = _lineItems.FirstOrDefault(li => li.Id == lineItemId);
+        if (lineItem is null) {
+            return; //nothing was found 
+        }
+        _lineItems.Remove(lineItem);
+
+    }
 }
