@@ -12,9 +12,11 @@ namespace Application.Orders.Create;
 internal sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand>
 {
     private readonly IApplicationDbContext _context;
-    public CreateOrderCommandHandler(IApplicationDbContext context)
+    private readonly IPublisher _publisher;
+    public CreateOrderCommandHandler(IApplicationDbContext context , IPublisher publisher)
     {
         _context = context;
+        _publisher = publisher;
     }
 
 
@@ -30,7 +32,11 @@ internal sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderCom
         
         _context.Orders.Add(order);
 
-        _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
+
+        await _publisher.Publish(new OrderCreatedEvent(order.Id),cancellationToken);
+
+
 
     }
 }
