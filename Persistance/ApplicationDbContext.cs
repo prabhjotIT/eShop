@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore;
 namespace Persistence;
 public class ApplicationDbContext : DbContext, IApplicationDbContext    
 {
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
+    {
+
+    }
     public DbSet<Customer> Customers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public DbSet<Order> Orders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
