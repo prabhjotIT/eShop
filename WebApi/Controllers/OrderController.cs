@@ -8,7 +8,7 @@ namespace WebApi.Controllers;
     private readonly IMediator _mediatoR;
     public OrderController(IMediator mediatoR)
     {
-        this._mediatoR = mediatoR;
+        _mediatoR = mediatoR;
     }
     
     [Route("[Controller]")]
